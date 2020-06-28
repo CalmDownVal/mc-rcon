@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./src",
+		"charset": "utf8",
+		"declaration": true,
+		"lib": [
+			"esnext"
+		],
+		"module": "esnext",
+		"moduleResolution": "node",
+		"newLine": "lf",
+		"outDir": "./dist",
+		"strict": true,
+		"target": "esnext",
+		"skipLibCheck": true,
+		"types": [
+			"node"
+		]
+	},
+	"include": [
+		"src/**/*.ts"
+	]
+}
