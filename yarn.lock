@@ -23,10 +23,10 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@calmdownval/signal@0.1.x":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@calmdownval/signal/-/signal-0.1.0.tgz#b24c8badf1d857465bb1f2c6ba9f2890607dcb05"
-  integrity sha512-7eNZ4mTPSYP/fxAeL992oOibKtNQrfy1zMLRT2DXOB715yRuwDy2P/pN3vakS01cI2a8lUBdCSNYlXEcQ2tIBQ==
+"@calmdownval/signal@1.x.x":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@calmdownval/signal/-/signal-1.0.0.tgz#219de93d68e97491ada0bcfacf51e7b81772d4b1"
+  integrity sha512-ARiYS4p1Q8Ql48MhR5vjz66k0JywMe1hJn6hf6DnLzXT2e8TH6lqk1DjVcx7paoT/LnvS1ttPJWvj8t4B9UQmg==
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
@@ -48,7 +48,7 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
-"@types/node@^14.0.14":
+"@types/node@14.x.x":
   version "14.0.14"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.14.tgz#24a0b5959f16ac141aeb0c5b3cd7a15b7c64cbce"
   integrity sha512-syUgf67ZQpaJj01/tRTknkMNoBBLWJOBODF0Zm4NrXmiSuxjymFrxnTu1QVYRubhVkRcZLYZG8STTwJRdVm/WQ==
