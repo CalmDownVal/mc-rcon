@@ -48,11 +48,10 @@ export class RconSocket {
 		});
 	}
 
-	public async close() {
-		assert.connected(this);
-		return new Promise<void>(resolve => {
-			this.socket.end(() => resolve());
-		});
+	public close() {
+		return this._isConnected
+			? new Promise<void>(resolve => this.socket.end(() => resolve()))
+			: Promise.resolve();
 	}
 
 	public async send(packet: OutPacket) {
