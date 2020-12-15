@@ -1,6 +1,5 @@
 {
 	"compilerOptions": {
-		"baseUrl": "./src",
 		"charset": "utf8",
 		"declaration": true,
 		"lib": [

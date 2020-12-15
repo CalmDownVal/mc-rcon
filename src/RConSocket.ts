@@ -10,7 +10,7 @@ export interface ReceiveOptions {
 	cancel?: Signal.Signal<void>;
 }
 
-export class RconSocket {
+export class RConSocket {
 	private readonly socket = new Socket();
 	public readonly error = Signal.create();
 	public readonly message = Signal.create<InPacket>();
@@ -27,7 +27,8 @@ export class RconSocket {
 		this.socket
 			.on('close', this.onClose)
 			.on('data', this.onData)
-			.on('drain', this.onDrain);
+			.on('drain', this.onDrain)
+			.on('error', this.error);
 	}
 
 	public async connect(host: string, port = 25575) {
@@ -35,13 +36,9 @@ export class RconSocket {
 		return new Promise<void>((resolve, reject) => {
 			this.socket
 				.connect({ host, port })
-				.off('error', this.error)
 				.on('error', reject)
 				.once('connect', () => {
-					this.socket!
-						.off('error', reject)
-						.on('error', this.error);
-
+					this.socket.off('error', reject);
 					this._isConnected = true;
 					resolve();
 				});
@@ -50,7 +47,7 @@ export class RconSocket {
 
 	public close() {
 		return this._isConnected
-			? new Promise<void>(resolve => this.socket.end(() => resolve()))
+			? new Promise<void>(resolve => this.socket.end(resolve))
 			: Promise.resolve();
 	}
 
@@ -83,6 +80,7 @@ export class RconSocket {
 			if (cancel) {
 				Signal.once(cancel, cleanup);
 			}
+
 			if (timeout > 0) {
 				timeoutHandle = setTimeout(() => {
 					cleanup();
@@ -96,13 +94,13 @@ export class RconSocket {
 		if (this._isDrained) {
 			return Promise.resolve();
 		}
-		return new Promise(resolve => {
+		return new Promise<void>(resolve => {
 			this.socket.once('drain', resolve);
 		});
 	}
 
 	private write(buffer: Buffer) {
-		return new Promise((resolve, reject) => {
+		return new Promise<void>((resolve, reject) => {
 			this._isDrained = this.socket.write(buffer, error => {
 				error ? reject(error) : resolve();
 			});

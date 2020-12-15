@@ -1,6 +1,6 @@
-# Minecraft RCON Client
+# Minecraft RCon Client
 
-A simple asynchronous RCON Client for NodeJS with TypeScript support.
+A simple asynchronous RCon Client for NodeJS with TypeScript support.
 
 ## Installation
 
@@ -14,8 +14,8 @@ yarn add @calmdownval/mc-rcon
 
 ## Example Usage
 
-This script will connect to a MC Server's RCON port, log in and execute the
-`say Hello, World!` command.
+This script will connect to a Minecraft Server's RCon port, log in and execute
+the `say Hello, World!` command.
 
 ```ts
 import { Client } from '@calmdownval/mc-rcon';
@@ -30,10 +30,10 @@ const RCON_PASSWORD = 'sup3r-s3cr3t';
     await client.connect(RCON_HOSTNAME, RCON_PORT);
     await client.login(RCON_PASSWORD);
     await client.exec('say Hello, World!');
+    console.info('Done!');
   }
-  catch (error) {
-    console.error('An error occurred:');
-    console.error(error);
+  catch (ex) {
+    console.error('An error occurred:', ex);
   }
   finally {
     await client.close();

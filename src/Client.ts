@@ -2,10 +2,10 @@ import * as Signal from '@calmdownval/signal';
 
 import * as assert from './assert';
 import { getNextId, OutPacketKind } from './Packet';
-import { RconSocket } from './RconSocket';
+import { RConSocket } from './RConSocket';
 
 export class Client {
-	public readonly socket = new RconSocket();
+	public readonly socket = new RConSocket();
 
 	private _isLoggedIn = false;
 	public timeout = 5000;
@@ -18,7 +18,7 @@ export class Client {
 		return this._isLoggedIn;
 	}
 
-	public connect(host: string, port = 25575) {
+	public connect(host: string, port?: number) {
 		return this.socket.connect(host, port);
 	}
 

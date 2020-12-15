@@ -1,15 +1,15 @@
 import type { Client } from './Client';
-import type { RconSocket } from './RconSocket';
+import type { RConSocket } from './RConSocket';
 
-export function connected(socket: RconSocket) {
+export function connected(socket: RConSocket) {
 	if (!socket.isConnected) {
-		throw new Error('RconSocket not connected');
+		throw new Error('RConSocket not connected');
 	}
 }
 
-export function notConnected(socket: RconSocket) {
+export function notConnected(socket: RConSocket) {
 	if (socket.isConnected) {
-		throw new Error('RconSocket already connected');
+		throw new Error('RConSocket already connected');
 	}
 }
 
