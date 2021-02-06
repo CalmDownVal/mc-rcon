@@ -4,12 +4,15 @@ A simple asynchronous RCon Client for NodeJS with TypeScript support.
 
 ## Installation
 
-```sh
-# using npm
-npm install @calmdownval/mc-rcon
+You will also need to install the
+[Signal](https://github.com/CalmDownVal/signal) peer dependency.
 
-# using yarn
-yarn add @calmdownval/mc-rcon
+```sh
+# using Npm
+npm install @calmdownval/mc-rcon @calmdownval/signal
+
+# using Yarn
+yarn add @calmdownval/mc-rcon @calmdownval/signal
 ```
 
 ## Example Usage
